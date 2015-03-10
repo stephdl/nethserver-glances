@@ -1,0 +1,14 @@
+#!/usr/bin/perl -w
+
+use esmith::Build::CreateLinks  qw(:all);
+
+
+my $event = "nethserver-glances-update";
+event_actions($event,
+'initialize-default-databases' => '00',
+'nethserver-glances-conf' => '20',
+'nethserver-glances-service-conf' => '30');
+
+# Templates to expand
+
+
