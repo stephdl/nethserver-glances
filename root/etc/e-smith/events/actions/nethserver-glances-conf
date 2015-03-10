@@ -1,4 +1,4 @@
 #!/usr/bin/perl -w
 
-    system ('pip install --upgrade bottle batinfo https://bitbucket.org/gleb_zhulik/py3sensors/get/tip.tar.gz zeroconf netifaces pymdstat influxdb statsd pystache Glances');
-    system ('/sbin/e-smith/signal-event firewall-adjust');
+system ('pip install --upgrade bottle batinfo https://bitbucket.org/gleb_zhulik/py3sensors/get/tip.tar.gz zeroconf netifaces pymdstat influxdb statsd pystache docker-py Glances');
+system ('/sbin/e-smith/signal-event firewall-adjust');
