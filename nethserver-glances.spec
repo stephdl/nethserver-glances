@@ -61,5 +61,5 @@ exit 0
 
 %changelog
 
-* Sat Mar 7 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-1.ns6
+* Tue Mar 10 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-2.ns6
 - First release to Nethserver
