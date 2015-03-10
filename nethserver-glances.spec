@@ -6,7 +6,7 @@ Summary: NethServer integration of glances
 Name: %{name}
 Version: %{version}
 Release: %{release}%{?dist}
-License: GNU GPL version 2
+License: GNU GPL version 3
 URL: http://dev.nethserver.org/projects/nethforge/wiki/%{name} 
 Group: Neth/addon
 Source: %{name}-%{version}.tar.gz
@@ -15,7 +15,7 @@ BuildArchitectures: noarch
 BuildRequires: perl
 BuildRequires: nethserver-devtools 
 BuildRoot: /var/tmp/%{name}-%{version}
-Requires: collectd-sensors gcc python-pip python-devel
+Requires: collectd-sensors gcc python-pip python-devel hddtemp
 AutoReqProv: no
 
 %description
@@ -61,5 +61,5 @@ exit 0
 
 %changelog
 
-* Tue Mar 10 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-2.ns6
+* Tue Mar 10 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-3.ns6
 - First release to Nethserver
