@@ -1,0 +1,20 @@
+{
+
+    return '# glances is  disabled' unless  ((${'glances'}{'status'} || 'disabled') eq 'enabled');
+
+    $OUT = '';
+    $OUT .= "    ProxyPass /glances http://127.0.0.1:${'glances'}{TCPPort}\n";
+    $OUT .= "    ProxyPassReverse /glances http://127.0.0.1:${'glances'}{TCPPort}\n";
+
+    $OUT .=<<"HERE";
+
+    <Location /glances>
+        AuthName "glances"
+        order deny,allow
+        deny from all
+        allow from $localAccess
+        Satisfy all
+    </Location>
+
+HERE
+}
