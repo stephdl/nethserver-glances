@@ -1,7 +1,7 @@
 
 %define name nethserver-glances
 %define version 1.0.0
-%define release 3
+%define release 4
 Summary: NethServer integration of glances
 Name: %{name}
 Version: %{version}
@@ -60,6 +60,9 @@ fi
 exit 0
 
 %changelog
+* Sun Mar 29 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-4.ns6
+- Added neth way to manage service
+- The TCP port can be changed
 
 * Tue Mar 10 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-3.ns6
 - First release to Nethserver

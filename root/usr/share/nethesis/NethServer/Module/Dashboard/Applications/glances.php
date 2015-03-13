@@ -16,9 +16,10 @@ class glances extends \Nethgui\Module\AbstractModule implements \NethServer\Modu
 
     public function getInfo()
     {
+         $port = $this->getPlatform()->getDatabase('configuration')->getProp('glances','TCPPort');
          $host = explode(':',$_SERVER['HTTP_HOST']);
          return array(
-            'url' => "http://".$host[0].":61208"
+            'url' => "http://".$host[0].":$port"
          );
     }
 }
