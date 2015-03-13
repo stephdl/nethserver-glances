@@ -2,3 +2,5 @@
 
 system ('pip install --upgrade bottle batinfo https://bitbucket.org/gleb_zhulik/py3sensors/get/tip.tar.gz zeroconf netifaces pymdstat influxdb statsd pystache docker-py Glances');
 system ('/sbin/e-smith/signal-event firewall-adjust');
+system ('/sbin/e-smith/signal-event runlevel-adjust');
+

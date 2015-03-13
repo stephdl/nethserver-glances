@@ -1,10 +1,7 @@
 #!/bin/sh
  ### BEGIN INIT INFO
  # Provides: tt-rss
- # Required-Start: $local_fs $network $named $time $syslog
- # Required-Stop: $local_fs $network $named $time $syslog
- # Default-Start: 2 3 4 5
- # Default-Stop: 0 1 6
+ # chkconfig: - 92 35
  # Description: tt-rss is a script to manage the tt-rss software
  ### END INIT INFO
  
