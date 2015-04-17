@@ -1,7 +1,7 @@
 
 %define name nethserver-glances
 %define version 1.0.0
-%define release 4
+%define release 5
 Summary: NethServer integration of glances
 Name: %{name}
 Version: %{version}
@@ -41,7 +41,21 @@ rm -f %{name}-%{version}-filelist
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/chkconfig --add glances
+/sbin/chkconfig --add glances &>/dev/null
+echo "
+ Hi
+
+ All my development work is done in my free time and from my own expenses. 
+ If you consider my work as something helpful, thank you to kindly make 
+ a donation to my paypal account and allow me to continue paying my server 
+ and all associated costs.
+
+ https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZPK8FKHVT4TY8
+
+ Thank in advance.
+ 
+ Stephane de Labrusse Alias Stephdl
+"
 
 %preun
 if [ "$1" = 0 ]; then
@@ -60,6 +74,9 @@ fi
 exit 0
 
 %changelog
+* Sun May 3 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-5.ns6
+- disclamer
+
 * Sun Mar 29 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-4.ns6
 - Added neth way to manage service
 - The TCP port can be changed
