@@ -1,7 +1,7 @@
 
 %define name nethserver-glances
 %define version 1.0.0
-%define release 5
+%define release 6
 Summary: NethServer integration of glances
 Name: %{name}
 Version: %{version}
@@ -74,6 +74,9 @@ fi
 exit 0
 
 %changelog
+* Sat Oct 1 2016 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-6.ns6
+- New command of Glances Installation
+
 * Sun May 3 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-5.ns6
 - disclamer
 
