@@ -1,7 +1,7 @@
 
 %define name nethserver-glances
 %define version 1.0.0
-%define release 6
+%define release 7
 Summary: NethServer integration of glances
 Name: %{name}
 Version: %{version}
@@ -22,6 +22,25 @@ AutoReqProv: no
 NethServer integration of glances
 Glances is a cross-platform curses-based system monitoring tool written in Python.
 
+
+%changelog
+* Sat Nov 5 2016 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-7.ns7
+- New rpm for NS7, installation command updated
+
+* Sat Oct 1 2016 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-6.ns6
+- New command of Glances Installation
+
+* Sun May 3 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-5.ns6
+- disclamer
+
+* Sun Mar 29 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-4.ns6
+- Added neth way to manage service
+- The TCP port can be changed
+
+* Tue Mar 10 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-3.ns6
+- First release to Nethserver
+
+
 %prep
 %setup
 %build
@@ -31,12 +50,13 @@ perl ./createlinks
 rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
 rm -f %{name}-%{version}-filelist
-/sbin/e-smith/genfilelist $RPM_BUILD_ROOT \
+%{genfilelist} $RPM_BUILD_ROOT \
+  --file /etc/rc.d/init.d/glances 'attr(0755,root,root)' \
   > %{name}-%{version}-filelist
 
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
-
+%dir %{_nseventsdir}/%{name}-update
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -73,16 +93,3 @@ fi
 
 exit 0
 
-%changelog
-* Sat Oct 1 2016 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-6.ns6
-- New command of Glances Installation
-
-* Sun May 3 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-5.ns6
-- disclamer
-
-* Sun Mar 29 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-4.ns6
-- Added neth way to manage service
-- The TCP port can be changed
-
-* Tue Mar 10 2015 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-3.ns6
-- First release to Nethserver
