@@ -1,7 +1,7 @@
 
 %define name nethserver-glances
 %define version 1.0.0
-%define release 7
+%define release 8
 Summary: NethServer integration of glances
 Name: %{name}
 Version: %{version}
@@ -24,6 +24,9 @@ Glances is a cross-platform curses-based system monitoring tool written in Pytho
 
 
 %changelog
+* Sun Mar 12 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.0-8.ns7
+- GPL license
+
 * Sat Nov 5 2016 stephane de labrusse <stephdl@de-labrusse.fr> 1.0.0-7.ns7
 - New rpm for NS7, installation command updated
 
@@ -57,25 +60,13 @@ rm -f %{name}-%{version}-filelist
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
 %dir %{_nseventsdir}/%{name}-update
+%doc COPYING
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add glances &>/dev/null
-echo "
- Hi
-
- All my development work is done in my free time and from my own expenses. 
- If you consider my work as something helpful, thank you to kindly make 
- a donation to my paypal account and allow me to continue paying my server 
- and all associated costs.
-
- https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZPK8FKHVT4TY8
-
- Thank in advance.
- 
- Stephane de Labrusse Alias Stephdl
-"
 
 %preun
 if [ "$1" = 0 ]; then
